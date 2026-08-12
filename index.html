@@ -1,310 +1,225 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>The Yard Experience Passport</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="style.css">
-
-</head>
-
-
-<body>
-
-
-<main class="experience-widget">
-
-
-<section class="hero">
-
-<span>
-THE YARD EXPERIENCE
-</span>
-
-
-<h1>
-YARD PASSPORT
-</h1>
-
-
-<p>
-Every drink tells a story.<br>
-Every visit unlocks an experience.
-</p>
-
-
-</section>
-
-
-
-
-<section class="passport-login">
-
-
-<h2>
-JOIN THE YARD TRIBE 🍊
-</h2>
-
-
-<input 
-id="nameInput"
-type="text"
-placeholder="Your Name">
-
-
-<input 
-id="emailInput"
-type="email"
-placeholder="Email (optional)">
-
-
-<input 
-id="phoneInput"
-type="tel"
-placeholder="Phone Number">
-
-
-<input 
-id="birthdayInput"
-type="date">
-
-
-<button id="joinButton">
-
-JOIN THE TRIBE
-
-</button>
-
-
-
-
-<hr>
-
-
-
-<h3>
-Already a member?
-</h3>
-
-
-
-<button id="findPassport">
-
-FIND MY PASSPORT
-
-</button>
-
-
-<p id="loginMessage"></p>
-
-
-</section>
-
-
-
-
-
-
-<section class="passport-card">
-
-
-<div class="card-header">
-
-
-<span class="tag">
-YARD TRIBE
-</span>
-
-
-
-<span class="level-badge">
-NEW EXPLORER
-</span>
-
-
-
-</div>
-
-
-
-
-
-<div class="member">
-
-
-<p>
-MEMBER
-</p>
-
-
-<h2 id="memberName">
-Welcome
-</h2>
-
-
-<p id="memberId">
-Member ID
-</p>
-
-
-
-</div>
-
-
-
-
-
-
-<div class="stats">
-
-
-
-<div class="stat">
-
-<label>
-XP
-</label>
-
-<strong id="xpValue">
-0 XP
-</strong>
-
-
-<div class="xp-bar">
-
-<div id="xpProgress"></div>
-
-</div>
-
-
-<p id="xpMessage"></p>
-
-
-</div>
-
-
-
-
-
-<div class="stat">
-
-<label>
-VISITS
-</label>
-
-<strong id="visitCount">
-0
-</strong>
-
-
-</div>
-
-
-
-
-
-<div class="stat">
-
-<label>
-EVENTS
-</label>
-
-<strong id="eventCount">
-0
-</strong>
-
-
-</div>
-
-
-
-</div>
-
-
-
-
-
-
-<div id="passportDetails">
-
-
-<h2>
-Passport Benefits
-</h2>
-
-
-<ul>
-
-<li>🍹 Cocktail Rewards</li>
-
-<li>🎟 VIP Events</li>
-
-<li>🔓 Secret Menu Access</li>
-
-<li>🏆 Yard Legend Status</li>
-
-</ul>
-
-
-</div>
-
-
-
-</section>
-
-
-
-
-
-
-<section class="challenge">
-
-
-<h2>
-🔥 Current Challenge
-</h2>
-
-
-<div>
-
-<h3>
-Bring A Friend
-</h3>
-
-
-<p>
-Earn XP by introducing someone new.
-</p>
-
-
-<strong>
-+50 XP
-</strong>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-</main>
-
-
-
-<script src="script.js"></script>
-
-
-</body>
-
-</html>
+// =====================================
+// THE YARD EXPERIENCE – SECURE CLIENT
+// =====================================
+
+// 🔁 Replace this with your actual deployed Apps Script URL
+const API_URL = "https://script.google.com/macros/s/AKfycbwLDR0Tku_ljziXqGpjg5LXVbfAqt-N8yqeKgPe0_19_BTybtfRwQZRTpyXCFfp4BUw/exec";
+
+let member = {
+  name: "Welcome",
+  memberId: "",
+  xp: 0,
+  visits: 0,
+  events: 0,
+  level: "🍊 NEW EXPLORER"
+};
+
+// ================================
+// Helper: sanitize input
+// ================================
+function sanitize(str) {
+  return str.trim().replace(/<[^>]*>/g, '');
+}
+
+// ================================
+// Load member data into UI
+// ================================
+function loadMember() {
+  document.getElementById("memberName").textContent = member.name;
+  document.getElementById("memberId").textContent = "Member ID: " + member.memberId;
+  document.getElementById("levelBadge").textContent = member.level;
+  document.getElementById("xpValue").textContent = member.xp + " XP";
+  document.getElementById("visitCount").textContent = member.visits;
+  document.getElementById("eventCount").textContent = member.events;
+
+  let progress = Math.min((member.xp / 250) * 100, 100);
+  document.getElementById("xpProgress").style.width = progress + "%";
+
+  if (member.memberId) {
+    document.getElementById("drinkSection").style.display = "block";
+    document.getElementById("passportDetails").classList.add("show");
+  }
+}
+
+// ================================
+// Register new member
+// ================================
+async function registerMember() {
+  const name = sanitize(document.getElementById("nameInput").value);
+  const email = sanitize(document.getElementById("emailInput").value);
+  const phone = sanitize(document.getElementById("phoneInput").value);
+  const pin = document.getElementById("pinInput").value;
+  const referral = sanitize(document.getElementById("referralInput").value);
+
+  const message = document.getElementById("loginMessage");
+
+  if (!name || !phone || !pin) {
+    message.textContent = "Please fill in Name, Phone, and PIN.";
+    return;
+  }
+  if (!/^\d{4}$/.test(pin)) {
+    message.textContent = "PIN must be exactly 4 digits.";
+    return;
+  }
+  if (phone.length < 7) {
+    message.textContent = "Please enter a valid phone number.";
+    return;
+  }
+
+  message.textContent = "Joining The Yard Tribe 🍊";
+
+  const formData = new URLSearchParams();
+  formData.append("action", "register");
+  formData.append("name", name);
+  formData.append("email", email);
+  formData.append("phone", phone);
+  formData.append("pin", pin);
+  formData.append("referral", referral);
+
+  try {
+    const response = await fetch(API_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: formData.toString()
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      member = data;
+      loadMember();
+      let msg = "Welcome to The Yard 🍸";
+      if (data.referralBonus) {
+        msg += " You earned " + data.referralBonus + " bonus XP!";
+      }
+      message.textContent = msg;
+    } else {
+      message.textContent = data.error || "Registration failed.";
+    }
+  } catch (error) {
+    console.error(error);
+    message.textContent = "Connection failed. Please try again.";
+  }
+}
+
+// ================================
+// Find existing member
+// ================================
+async function findPassport() {
+  const phone = sanitize(document.getElementById("loginPhoneInput").value);
+  const pin = document.getElementById("loginPinInput").value;
+
+  const message = document.getElementById("loginMessage");
+
+  if (!phone || !pin) {
+    message.textContent = "Please enter your phone and PIN.";
+    return;
+  }
+  if (!/^\d{4}$/.test(pin)) {
+    message.textContent = "PIN must be exactly 4 digits.";
+    return;
+  }
+
+  message.textContent = "Searching Yard Tribe 🍊";
+
+  const formData = new URLSearchParams();
+  formData.append("action", "lookup");
+  formData.append("phone", phone);
+  formData.append("pin", pin);
+
+  try {
+    const response = await fetch(API_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: formData.toString()
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      member = data;
+      loadMember();
+      message.textContent = "Passport found 🍸";
+    } else {
+      message.textContent = data.error || "Member not found or PIN incorrect.";
+    }
+  } catch (error) {
+    console.error(error);
+    message.textContent = "Connection error. Please try again.";
+  }
+}
+
+// ================================
+// Submit a drink
+// ================================
+async function submitDrink() {
+  const name = sanitize(document.getElementById("drinkNameInput").value);
+  const phone = sanitize(document.getElementById("drinkPhoneInput").value);
+  const drinkName = sanitize(document.getElementById("drinkNameInput").value);
+  const syrup = sanitize(document.getElementById("syrupInput").value);
+  const baseJuice = sanitize(document.getElementById("baseJuiceInput").value);
+  const alcohol = sanitize(document.getElementById("alcoholInput").value);
+  const mixers = sanitize(document.getElementById("mixersInput").value);
+  const garnish = sanitize(document.getElementById("garnishInput").value);
+  const specialReq = sanitize(document.getElementById("specialReqInput").value);
+
+  const message = document.getElementById("drinkMessage");
+
+  if (!name || !phone || !drinkName) {
+    message.textContent = "Please fill in your name, phone, and drink name.";
+    return;
+  }
+
+  message.textContent = "Submitting your drink... 🍹";
+
+  const formData = new URLSearchParams();
+  formData.append("action", "submitDrink");
+  formData.append("name", name);
+  formData.append("phone", phone);
+  formData.append("drinkName", drinkName);
+  formData.append("syrup", syrup);
+  formData.append("baseJuice", baseJuice);
+  formData.append("alcohol", alcohol);
+  formData.append("mixers", mixers);
+  formData.append("garnish", garnish);
+  formData.append("specialReq", specialReq);
+
+  try {
+    const response = await fetch(API_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: formData.toString()
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      if (data.member) {
+        member = data.member;
+        loadMember();
+      }
+      message.textContent = data.message || "Drink submitted! +25 XP 🎉";
+      document.getElementById("drinkNameInput").value = "";
+      document.getElementById("syrupInput").value = "";
+      document.getElementById("baseJuiceInput").value = "";
+      document.getElementById("alcoholInput").value = "";
+      document.getElementById("mixersInput").value = "";
+      document.getElementById("garnishInput").value = "";
+      document.getElementById("specialReqInput").value = "";
+    } else {
+      message.textContent = data.error || "Failed to submit drink.";
+    }
+  } catch (error) {
+    console.error(error);
+    message.textContent = "Connection error. Please try again.";
+  }
+}
+
+// ================================
+// Event listeners
+// ================================
+document.getElementById("joinButton").addEventListener("click", registerMember);
+document.getElementById("findPassport").addEventListener("click", findPassport);
+document.getElementById("submitDrinkButton").addEventListener("click", submitDrink);
+
+loadMember();
