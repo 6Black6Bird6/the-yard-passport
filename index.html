@@ -83,13 +83,12 @@
       </div>
     </section>
 
-    <!-- SUBMIT DRINK -->
+    <!-- SUBMIT DRINK (visible after login) -->
     <section class="drink-submit" id="drinkSection" style="display:none;">
       <h2>🍸 SUBMIT YOUR DRINK</h2>
       <p>Create your signature drink and earn <strong>+25 XP</strong>!</p>
 
-      <input id="drinkNameInput" type="text" placeholder="Name your drink">
-      <input id="drinkPhoneInput" type="tel" placeholder="Your phone number">
+      <input id="drinkNameInput" type="text" placeholder="Drink Name *">
       <input id="syrupInput" type="text" placeholder="Syrup (e.g., Vanilla Syrup)">
       <input id="baseJuiceInput" type="text" placeholder="Base Juice (e.g., Orange Juice)">
       <input id="alcoholInput" type="text" placeholder="Alcohol (e.g., Vodka, Gin)">
@@ -99,6 +98,37 @@
 
       <button id="submitDrinkButton">SUBMIT DRINK 🍹</button>
       <p id="drinkMessage"></p>
+    </section>
+
+    <!-- PHOTO GALLERY -->
+    <section class="photo-section">
+      <h2>📸 LIVE PHOTO GALLERY</h2>
+      <p>Share your Yard moments! Upload a photo and it will appear after moderation.</p>
+
+      <div class="photo-upload">
+        <input id="photoName" type="text" placeholder="Your Name" required>
+        <input id="photoCaption" type="text" placeholder="Caption (optional)">
+        <input id="photoFile" type="file" accept="image/*" required>
+        <button id="uploadPhotoButton">UPLOAD PHOTO 📤</button>
+        <p id="photoUploadMessage"></p>
+      </div>
+
+      <div id="photoGallery" class="photo-gallery">
+        <!-- Photos loaded dynamically -->
+      </div>
+    </section>
+
+    <!-- ADMIN PANEL -->
+    <section class="admin-section">
+      <h2>🛠️ Admin – Photo Moderation</h2>
+      <input id="adminKeyInput" type="password" placeholder="Enter Admin Key">
+      <button id="adminLoginButton">LOGIN AS ADMIN</button>
+      <div id="adminControls" style="display:none; margin-top:15px;">
+        <h3>Pending Photos</h3>
+        <div id="pendingPhotosList"></div>
+        <p id="adminMessage"></p>
+        <button id="adminLogoutButton">LOGOUT</button>
+      </div>
     </section>
 
     <!-- CHALLENGE -->
