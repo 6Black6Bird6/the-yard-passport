@@ -2,8 +2,8 @@
 // THE YARD EXPERIENCE – CLIENT (FINAL)
 // ============================================================
 
-// 🔁 Replace with your deployed Apps Script URL
-const API_URL = "https://script.google.com/macros/s/AKfycbwLDR0Tku_ljziXqGpjg5LXVbfAqt-N8yqeKgPe0_19_BTybtfRwQZRTpyXCFfp4BUw/execE";
+// 🔁 Replace with your actual deployed Apps Script URL
+const API_URL = "https://script.google.com/macros/s/AKfycbwLDR0Tku_ljziXqGpjg5LXVbfAqt-N8yqeKgPe0_19_BTybtfRwQZRTpyXCFfp4BUw/exec";
 
 let member = {
   name: "Welcome",
