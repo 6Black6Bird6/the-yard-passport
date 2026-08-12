@@ -1,443 +1,733 @@
-:root{
+/* ============================================
+   THE YARD EXPERIENCE – PREMIUM STYLE
+   Dark luxury with orange accents
+   ============================================ */
 
---orange:#F57C00;
---black:#050505;
---white:#fff;
---grey:#aaa;
-
+:root {
+  --orange: #F57C00;
+  --orange-light: #FFA726;
+  --orange-dark: #E65100;
+  --black: #0A0A0A;
+  --black-light: #1A1A1A;
+  --white: #FFFFFF;
+  --grey: #B0B0B0;
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+  --radius: 30px;
+  --font-display: 'Bebas Neue', cursive;
+  --font-body: 'Poppins', sans-serif;
 }
 
-
-*{
-
-box-sizing:border-box;
-
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-
-body{
-
-margin:0;
-
-padding:25px;
-
-background:
-radial-gradient(circle at top,
-rgba(245,124,0,.25),
-transparent 35%),
-var(--black);
-
-color:white;
-
-font-family:Poppins,sans-serif;
-
+body {
+  min-height: 100vh;
+  padding: 25px 15px;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(245, 124, 0, 0.15), transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(245, 124, 0, 0.08), transparent 40%),
+    var(--black);
+  font-family: var(--font-body);
+  color: var(--white);
+  line-height: 1.6;
 }
 
-
-
-.experience-widget{
-
-max-width:460px;
-
-margin:auto;
-
+.experience-widget {
+  max-width: 480px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
-
-
-.hero{
-
-text-align:center;
-
-margin-bottom:25px;
-
+/* ================================
+   HERO
+   ================================ */
+.hero {
+  text-align: center;
+  padding: 20px 0 10px;
 }
 
-
-.hero span{
-
-color:var(--orange);
-
-letter-spacing:5px;
-
-font-size:12px;
-
+.hero span {
+  display: inline-block;
+  letter-spacing: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--orange);
+  text-transform: uppercase;
+  background: rgba(245, 124, 0, 0.12);
+  padding: 6px 18px;
+  border-radius: 50px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  margin-bottom: 12px;
 }
 
-
-h1,h2,h3{
-
-font-family:"Bebas Neue";
-
-letter-spacing:2px;
-
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: 48px;
+  letter-spacing: 4px;
+  background: linear-gradient(135deg, #FFA726, #F57C00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 30px rgba(245, 124, 0, 0.3);
+  margin: 8px 0;
 }
 
-
-
-.hero p{
-
-color:#bbb;
-
+.hero p {
+  font-size: 14px;
+  color: var(--grey);
+  font-weight: 300;
+  letter-spacing: 0.5px;
 }
 
-
-
-
-.passport-card{
-
-background:
-linear-gradient(
-135deg,
-#181818,
-#080808
-);
-
-padding:25px;
-
-border-radius:30px;
-
-border:1px solid rgba(255,255,255,.1);
-
-box-shadow:
-0 25px 60px black;
-
+/* ================================
+   PASSPORT CARD
+   ================================ */
+.passport-card {
+  background: linear-gradient(145deg, rgba(26, 26, 26, 0.95), rgba(10, 10, 10, 0.98));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 28px 24px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease;
 }
 
-
-
-.card-header{
-
-display:flex;
-
-justify-content:space-between;
-
+.passport-card:hover {
+  transform: translateY(-4px);
 }
 
-
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
 
 .tag,
-.level-badge{
-
-background:rgba(245,124,0,.15);
-
-padding:8px 15px;
-
-border-radius:30px;
-
-font-size:12px;
-
+.level-badge {
+  background: rgba(245, 124, 0, 0.12);
+  padding: 6px 18px;
+  border-radius: 50px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
-
-
-.tag{
-
-color:var(--orange);
-
+.tag {
+  color: var(--orange);
+  border: 1px solid rgba(245, 124, 0, 0.25);
 }
 
-
-
-
-.member{
-
-margin-top:30px;
-
-border-top:1px solid #333;
-
-padding-top:20px;
-
+.level-badge {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-
-.member p{
-
-color:#aaa;
-
-font-size:12px;
-
+.member {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-
-.member h2{
-
-font-size:30px;
-
-margin:5px 0;
-
+.member p:first-child {
+  font-size: 11px;
+  color: var(--grey);
+  letter-spacing: 3px;
+  text-transform: uppercase;
 }
 
-
-.member span{
-
-color:#aaa;
-
+.member h2 {
+  font-family: var(--font-display);
+  font-size: 34px;
+  letter-spacing: 2px;
+  margin: 4px 0 2px;
+  background: linear-gradient(135deg, #fff, #ccc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-
-
-
-.stats{
-
-display:grid;
-
-grid-template-columns:repeat(3,1fr);
-
-gap:12px;
-
-margin-top:30px;
-
+.member #memberId {
+  font-size: 13px;
+  color: var(--grey);
+  font-weight: 300;
 }
 
-
-
-.stat{
-
-background:#111;
-
-padding:15px;
-
-border-radius:20px;
-
-text-align:center;
-
+/* ================================
+   STATS
+   ================================ */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 28px;
 }
 
-
-
-.stat label{
-
-font-size:12px;
-
-color:#aaa;
-
+.stat {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  padding: 16px 8px;
+  border-radius: 20px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  transition: background 0.3s ease;
 }
 
-
-.stat strong{
-
-display:block;
-
-font-size:20px;
-
-margin-top:10px;
-
+.stat:hover {
+  background: rgba(255, 255, 255, 0.07);
 }
 
-
-
-.xp-bar{
-
-height:7px;
-
-background:#333;
-
-border-radius:20px;
-
-margin-top:12px;
-
-overflow:hidden;
-
+.stat label {
+  display: block;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--grey);
+  font-weight: 400;
 }
 
-
-#xpProgress{
-
-height:100%;
-
-width:0%;
-
-background:var(--orange);
-
-transition:1s;
-
+.stat strong {
+  display: block;
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 6px;
+  background: linear-gradient(135deg, #fff, #aaa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-
-
-button{
-
-width:100%;
-
-margin-top:25px;
-
-padding:15px;
-
-border:none;
-
-border-radius:30px;
-
-background:
-linear-gradient(
-135deg,
-#ff9800,
-#F57C00
-);
-
-color:white;
-
-font-weight:bold;
-
-cursor:pointer;
-
+.xp-bar {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  margin-top: 14px;
+  overflow: hidden;
 }
 
-
-
-
-#passportDetails{
-
-display:none;
-
-margin-top:25px;
-
-padding:20px;
-
-background:#111;
-
-border-radius:25px;
-
+#xpProgress {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--orange-light), var(--orange));
+  border-radius: 20px;
+  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 20px rgba(245, 124, 0, 0.3);
 }
 
-
-
-#passportDetails.show{
-
-display:block;
-
-animation:open .5s;
-
+/* ================================
+   PASSPORT BENEFITS
+   ================================ */
+#passportDetails {
+  display: none;
+  margin-top: 25px;
+  padding: 20px 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-
-
-@keyframes open{
-
-from{
-
-opacity:0;
-
-transform:translateY(-20px);
-
+#passportDetails.show {
+  display: block;
+  animation: fadeSlide 0.6s ease;
 }
 
-to{
-
-opacity:1;
-
-transform:none;
-
+#passportDetails h2 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+  color: var(--orange-light);
 }
 
+#passportDetails ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
 }
 
-
-
-.qr{
-
-height:180px;
-
-display:grid;
-
-place-items:center;
-
-background:#222;
-
-border-radius:20px;
-
-margin:20px 0;
-
+#passportDetails ul li {
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 16px;
+  font-size: 13px;
+  font-weight: 300;
+  border-left: 3px solid var(--orange);
+  transition: background 0.3s ease;
 }
 
-
-
-.challenge,
-.rewards{
-
-margin-top:25px;
-
-background:#111;
-
-padding:20px;
-
-border-radius:25px;
-
+#passportDetails ul li:hover {
+  background: rgba(255, 255, 255, 0.08);
 }
 
-
-
-.challenge div,
-.reward{
-
-background:#191919;
-
-padding:18px;
-
-border-radius:18px;
-
-margin-top:12px;
-
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-
-
-.reward{
-
-font-weight:bold;
-
-}
-.passport-login{
-
-display:grid;
-gap:12px;
-margin-bottom:20px;
-
-}
-
-
-.passport-login input{
-
-padding:15px;
-border-radius:30px;
-border:1px solid rgba(255,255,255,.15);
-
-background:#111;
-
-color:white;
-
-font-size:1rem;
-
-text-align:center;
-
+/* ================================
+   LOGIN / REGISTER
+   ================================ */
+.passport-login {
+  display: grid;
+  gap: 12px;
+  background: linear-gradient(145deg, rgba(26, 26, 26, 0.9), rgba(10, 10, 10, 0.95));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 28px 24px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: var(--shadow);
 }
 
-
-.passport-login button{
-
-padding:15px;
-
-border:none;
-
-border-radius:30px;
-
-background:#F57C00;
-
-color:white;
-
-font-weight:bold;
-
-cursor:pointer;
-
+.passport-login h2,
+.passport-login h3 {
+  font-family: var(--font-display);
+  letter-spacing: 2px;
+  text-align: center;
 }
 
+.passport-login h2 {
+  font-size: 28px;
+  color: var(--orange-light);
+  margin-bottom: 6px;
+}
 
-#loginMessage{
+.passport-login h3 {
+  font-size: 20px;
+  color: var(--grey);
+  margin-top: 6px;
+}
 
-text-align:center;
+.passport-login input {
+  padding: 16px 20px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--white);
+  font-size: 15px;
+  font-family: var(--font-body);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
 
-color:#c4c4c4;
+.passport-login input:focus {
+  outline: none;
+  border-color: var(--orange);
+  box-shadow: 0 0 0 3px rgba(245, 124, 0, 0.15);
+}
 
-font-size:.9rem;
+.passport-login input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+  font-weight: 300;
+}
 
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  margin: 10px 0 6px;
+}
+
+.passport-login button {
+  padding: 16px;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(135deg, var(--orange-light), var(--orange-dark));
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 20px rgba(245, 124, 0, 0.25);
+}
+
+.passport-login button:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 28px rgba(245, 124, 0, 0.35);
+}
+
+.passport-login button:active {
+  transform: scale(0.98);
+}
+
+#loginMessage {
+  text-align: center;
+  font-size: 14px;
+  color: var(--grey);
+  font-weight: 300;
+  min-height: 24px;
+  margin-top: 4px;
+}
+
+/* ================================
+   DRINK SUBMIT & PHOTO UPLOAD
+   ================================ */
+.drink-submit,
+.photo-section {
+  background: linear-gradient(145deg, rgba(26, 26, 26, 0.9), rgba(10, 10, 10, 0.95));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 24px 20px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: var(--shadow);
+}
+
+.drink-submit h2,
+.photo-section h2 {
+  font-family: var(--font-display);
+  font-size: 26px;
+  letter-spacing: 2px;
+  text-align: center;
+  color: var(--orange-light);
+}
+
+.drink-submit p,
+.photo-section p {
+  text-align: center;
+  color: var(--grey);
+  font-weight: 300;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.drink-submit input,
+.photo-upload input {
+  width: 100%;
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--white);
+  font-size: 14px;
+  font-family: var(--font-body);
+  transition: border-color 0.3s ease;
+  text-align: center;
+}
+
+.drink-submit input:focus,
+.photo-upload input:focus {
+  outline: none;
+  border-color: var(--orange);
+}
+
+.drink-submit button,
+.photo-upload button {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(135deg, var(--orange-light), var(--orange-dark));
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 20px rgba(245, 124, 0, 0.2);
+  margin-top: 4px;
+}
+
+.drink-submit button:hover,
+.photo-upload button:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 28px rgba(245, 124, 0, 0.3);
+}
+
+#drinkMessage,
+#photoUploadMessage {
+  text-align: center;
+  font-size: 14px;
+  color: var(--grey);
+  font-weight: 300;
+  min-height: 24px;
+  margin-top: 8px;
+}
+
+/* ================================
+   PHOTO GALLERY
+   ================================ */
+.photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.photo-item {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+
+.photo-item img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  display: block;
+  background: #222;
+}
+
+.photo-item .photo-info {
+  padding: 12px 14px;
+  font-size: 13px;
+  color: var(--grey);
+}
+
+.photo-item .photo-info strong {
+  display: block;
+  color: var(--white);
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+
+.photo-item .photo-info .timestamp {
+  display: block;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.3);
+  margin-top: 4px;
+}
+
+/* ================================
+   ADMIN PANEL
+   ================================ */
+.admin-section {
+  background: linear-gradient(145deg, rgba(26, 26, 26, 0.9), rgba(10, 10, 10, 0.95));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 24px 20px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: var(--shadow);
+}
+
+.admin-section h2 {
+  font-family: var(--font-display);
+  font-size: 24px;
+  letter-spacing: 2px;
+  color: #EF5350;
+  text-align: center;
+}
+
+.admin-section input,
+.admin-section button {
+  width: 100%;
+  padding: 14px 18px;
+  margin: 6px 0;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--white);
+  font-size: 14px;
+  font-family: var(--font-body);
+  text-align: center;
+}
+
+.admin-section input:focus {
+  outline: none;
+  border-color: #EF5350;
+}
+
+.admin-section button {
+  background: linear-gradient(135deg, #EF5350, #C62828);
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 20px rgba(239, 83, 80, 0.2);
+}
+
+.admin-section button:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 28px rgba(239, 83, 80, 0.3);
+}
+
+#pendingPhotosList .pending-item {
+  background: rgba(255, 255, 255, 0.04);
+  padding: 12px;
+  margin: 12px 0;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+#pendingPhotosList .pending-item img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+#pendingPhotosList .pending-item .info {
+  flex: 1;
+  min-width: 120px;
+}
+
+#pendingPhotosList .pending-item .info strong {
+  color: var(--white);
+  font-weight: 600;
+}
+
+#pendingPhotosList .pending-item .info small {
+  color: var(--grey);
+  font-size: 11px;
+}
+
+#pendingPhotosList .pending-item button {
+  width: auto;
+  padding: 8px 18px;
+  margin: 3px;
+  border-radius: 30px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+#pendingPhotosList .pending-item button:hover {
+  transform: scale(1.05);
+}
+
+.approve-btn {
+  background: #2E7D32 !important;
+  color: white !important;
+}
+
+.delete-btn {
+  background: #C62828 !important;
+  color: white !important;
+}
+
+#adminMessage {
+  text-align: center;
+  font-size: 14px;
+  color: var(--grey);
+  margin-top: 8px;
+}
+
+/* ================================
+   CHALLENGE
+   ================================ */
+.challenge {
+  background: linear-gradient(145deg, rgba(26, 26, 26, 0.9), rgba(10, 10, 10, 0.95));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 24px 20px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: var(--shadow);
+}
+
+.challenge h2 {
+  font-family: var(--font-display);
+  font-size: 26px;
+  letter-spacing: 2px;
+  text-align: center;
+  color: var(--orange-light);
+}
+
+.challenge div {
+  background: rgba(255, 255, 255, 0.04);
+  padding: 18px;
+  border-radius: 20px;
+  margin-top: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.challenge div h3 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  letter-spacing: 1px;
+  color: var(--white);
+}
+
+.challenge div p {
+  color: var(--grey);
+  font-weight: 300;
+}
+
+.challenge div strong {
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--orange-light);
+  font-size: 20px;
+}
+
+/* ================================
+   RESPONSIVE
+   ================================ */
+@media (max-width: 480px) {
+  body {
+    padding: 15px 10px;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .member h2 {
+    font-size: 28px;
+  }
+
+  .stats {
+    gap: 8px;
+  }
+
+  .stat strong {
+    font-size: 20px;
+  }
+
+  .photo-gallery {
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  }
+
+  .passport-card,
+  .passport-login,
+  .drink-submit,
+  .photo-section,
+  .admin-section,
+  .challenge {
+    padding: 20px 16px;
+  }
+
+  #passportDetails ul {
+    grid-template-columns: 1fr;
+  }
+
+  #pendingPhotosList .pending-item {
+    flex-direction: column;
+    align-items: stretch;
+  }
 }
