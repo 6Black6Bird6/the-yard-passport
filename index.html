@@ -2,11 +2,16 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Yard Experience Passport</title>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+
+  <!-- Google Fonts: Fraunces & IBM Plex Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@300;400;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
@@ -17,7 +22,7 @@
     <section class="hero">
       <span>THE YARD EXPERIENCE</span>
       <h1>YARD PASSPORT</h1>
-      <p>Every drink tells a story.<br>Every visit unlocks an experience.</p>
+      <p>Every drink tells a story.<br />Every visit unlocks an experience.</p>
     </section>
 
     <!-- LOGIN / REGISTER -->
@@ -25,19 +30,19 @@
 
       <h2>JOIN THE YARD TRIBE 🍊</h2>
 
-      <input id="nameInput" type="text" placeholder="Your Name" required>
-      <input id="emailInput" type="email" placeholder="Email (optional)">
-      <input id="phoneInput" type="tel" placeholder="Phone Number" required>
-      <input id="pinInput" type="password" placeholder="Set a 4-digit PIN" maxlength="4" pattern="\d{4}" required>
-      <input id="referralInput" type="tel" placeholder="Friend's Phone (optional – get bonus XP)">
+      <input id="nameInput" type="text" placeholder="Your Name" required />
+      <input id="emailInput" type="email" placeholder="Email (optional)" />
+      <input id="phoneInput" type="tel" placeholder="Phone Number" required />
+      <input id="pinInput" type="password" placeholder="Set a 4-digit PIN" maxlength="4" pattern="\d{4}" required />
+      <input id="referralInput" type="tel" placeholder="Friend's Phone (optional – get bonus XP)" />
 
       <button id="joinButton">JOIN THE TRIBE</button>
 
-      <hr>
+      <hr />
 
       <h3>Already a member?</h3>
-      <input id="loginPhoneInput" type="tel" placeholder="Your Phone Number" required>
-      <input id="loginPinInput" type="password" placeholder="Your 4-digit PIN" maxlength="4" pattern="\d{4}" required>
+      <input id="loginPhoneInput" type="tel" placeholder="Your Phone Number" required />
+      <input id="loginPinInput" type="password" placeholder="Your 4-digit PIN" maxlength="4" pattern="\d{4}" required />
       <button id="findPassport">FIND MY PASSPORT</button>
 
       <p id="loginMessage"></p>
@@ -83,18 +88,18 @@
       </div>
     </section>
 
-    <!-- SUBMIT DRINK (visible after login) -->
+    <!-- SUBMIT DRINK -->
     <section class="drink-submit" id="drinkSection" style="display:none;">
       <h2>🍸 SUBMIT YOUR DRINK</h2>
       <p>Create your signature drink and earn <strong>+25 XP</strong>!</p>
 
-      <input id="drinkNameInput" type="text" placeholder="Drink Name *">
-      <input id="syrupInput" type="text" placeholder="Syrup (e.g., Vanilla Syrup)">
-      <input id="baseJuiceInput" type="text" placeholder="Base Juice (e.g., Orange Juice)">
-      <input id="alcoholInput" type="text" placeholder="Alcohol (e.g., Vodka, Gin)">
-      <input id="mixersInput" type="text" placeholder="Mixers (e.g., Soda Water)">
-      <input id="garnishInput" type="text" placeholder="Garnish (e.g., Lime Wheel)">
-      <input id="specialReqInput" type="text" placeholder="Special requirements (e.g., Shaken)">
+      <input id="drinkNameInput" type="text" placeholder="Drink Name *" />
+      <input id="syrupInput" type="text" placeholder="Syrup (e.g., Vanilla Syrup)" />
+      <input id="baseJuiceInput" type="text" placeholder="Base Juice (e.g., Orange Juice)" />
+      <input id="alcoholInput" type="text" placeholder="Alcohol (e.g., Vodka, Gin)" />
+      <input id="mixersInput" type="text" placeholder="Mixers (e.g., Soda Water)" />
+      <input id="garnishInput" type="text" placeholder="Garnish (e.g., Lime Wheel)" />
+      <input id="specialReqInput" type="text" placeholder="Special requirements (e.g., Shaken)" />
 
       <button id="submitDrinkButton">SUBMIT DRINK 🍹</button>
       <p id="drinkMessage"></p>
@@ -106,9 +111,9 @@
       <p>Share your Yard moments! Upload a photo and it will appear after moderation.</p>
 
       <div class="photo-upload">
-        <input id="photoName" type="text" placeholder="Your Name" required>
-        <input id="photoCaption" type="text" placeholder="Caption (optional)">
-        <input id="photoFile" type="file" accept="image/*" required>
+        <input id="photoName" type="text" placeholder="Your Name" required />
+        <input id="photoCaption" type="text" placeholder="Caption (optional)" />
+        <input id="photoFile" type="file" accept="image/*" required />
         <button id="uploadPhotoButton">UPLOAD PHOTO 📤</button>
         <p id="photoUploadMessage"></p>
       </div>
@@ -121,7 +126,7 @@
     <!-- ADMIN PANEL -->
     <section class="admin-section">
       <h2>🛠️ Admin – Photo Moderation</h2>
-      <input id="adminKeyInput" type="password" placeholder="Enter Admin Key">
+      <input id="adminKeyInput" type="password" placeholder="Enter Admin Key" />
       <button id="adminLoginButton">LOGIN AS ADMIN</button>
       <div id="adminControls" style="display:none; margin-top:15px;">
         <h3>Pending Photos</h3>
